@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typing Simulator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <!-- Login and Register buttons at the top right -->
+        <button id="loginButton" class="top-right">Login</button>
+        <button id="registerButton" class="top-right">Register</button>
+        <!-- Dark mode toggle switch -->
+        <label class="switch">
+            <input type="checkbox" id="darkModeToggle" checked>
+            <span class="slider round"></span>
+        </label>
+        <!-- Auto-generate toggle switch -->
+        <label class="switch">
+            <input type="checkbox" id="autoGenerateToggle">
+            <span class="slider round"></span> Auto Generate
+        </label>
+    </header>
+    <div class="container">
+        <!-- Section for generating custom text -->
+        <section class="generate-text">
+            <h2>Generate Custom Text</h2>
+            <input type="text" id="customPrompt" placeholder="Enter a prompt...">
+            <button id="generateButton">Generate Text</button>
+            <div id="generatedText"></div>
+        </section>
+
+        <!-- Section for the typing simulator -->
+        <section class="typing-simulator">
+            <h1>Typing Simulator</h1>
+            <p id="sampleText">This is a typing simulator. Type the text displayed.</p>
+            <textarea id="userInput" rows="5" placeholder="Start typing here..."></textarea>
+            <div id="results">
+                <p>Time: <span id="time">0.00</span> seconds</p>
+                <p>Accuracy: <span id="accuracy">0.00</span>%</p>
+                <p>WPM: <span id="wpm">0.00</span></p>
+                <p>Word Count: <span id="wordCount">0</span></p>
+            </div>
+        </section>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
